@@ -4,7 +4,7 @@ with open('.\input.txt', 'r') as file:
 # Konverterer inputen til en liste hvor hver linje er en liste på formen [x1,y1,x2,y2]
 input = [[int(n) for n in line.replace(',','-').split('-')] for line in input]
 
-# Del 1
+# ---------------------------------------- Del 1 -------------------------------------------
 
 # Definerer en funksjon som returnerer 1 dersom linjen inneholder et fullstendig overlappet intervall
 def fullyContained(line):
@@ -15,7 +15,7 @@ def fullyContained(line):
 # Summerer listen med resultat fra fullyContained for hver linje i input
 print(sum([fullyContained(line) for line in input]))
 
-# Del 2
+# ---------------------------------------- Del 2 -------------------------------------------
 
 # Samme som over, men sjekker kun om det finnes tall i det første intervall som også finnes i det andre
 def partlyContained(line):
