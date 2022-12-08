@@ -11,10 +11,10 @@ for line in input_:
         dummy = []
 input.append(dummy)
 
-# Del 1
+# ---------------------------------------- Del 1 -------------------------------------------
 print(max([sum(elf) for elf in input]))
 
-# Del 2
+# ---------------------------------------- Del 2 -------------------------------------------
 # Summerer kaloriene for hver enkelt alv og sorterer disse. sorted sorterer summene fra lavest til høyest.
 # Tar til slutt summen av de tre høyeste(siste) i den sorterte listen av totalt antall kalorier per alv
 print(sum(sorted([sum(elf) for elf in input])[:-3]))
