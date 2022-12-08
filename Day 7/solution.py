@@ -38,7 +38,7 @@ for i in range(2, len(input)):
         if '$ ls' not in input[i]:
             currentDir.addFile(File(currentDir,input[i],int(input[i].split(' ')[0])))
 
-# Funksjon som beregner størrelsene på mappene i treet rekrusivt
+# Funksjon som beregner størrelsene på mappene i treet rekursivt
 def calculateDirSize(file):
     if len(file.Files) != 0:
         for dir in file.Files:
