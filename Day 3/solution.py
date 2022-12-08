@@ -2,7 +2,7 @@ with open('.\input.txt', 'r') as file:
     input = file.read().splitlines()
 
 
-# Del 1
+# ---------------------------------------- Del 1 -------------------------------------------
 
 # Linje for linje blir hver bokstav som befinner seg i første halvdel av linjen
 # sjekket om den finnes i den andre halvdelen
@@ -19,7 +19,7 @@ for line in input:
                 break
 print(sum(res))
 
-# Del 2
+# ---------------------------------------- Del 2 -------------------------------------------
 
 # Hver bokstav i hver tredje linje blir sjekket om finnes i de to neste linjene
 res = []
