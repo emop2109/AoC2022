@@ -48,7 +48,7 @@ def calculateDirSize(file):
 calculateDirSize(root)
 
 # Funksjon som finner og returnerer størrelsen på mapper større/mindre enn en gitt størrelse
-def findDirBySize(dir, n, operator, listOfDirs = []):
+def findDirBySize(dir, n, operator, listOfDirs):
     if len(dir.Files) != 0:
         for file in dir.Files:
             findDirBySize(file, n, operator, listOfDirs)
@@ -62,8 +62,8 @@ def findDirBySize(dir, n, operator, listOfDirs = []):
 
 # ---------------------------------------- Del 1 -------------------------------------------
 # Finner summen av alle mappene som er mindre en n
-print(sum(findDirBySize(root, 100000, '<=')))
+print(sum(findDirBySize(root, 100000, '<=', [])))
 
-# ---------------------------------------- Del 1 -------------------------------------------
+# ---------------------------------------- Del 2 -------------------------------------------
 # Finner den minste mappen som er større enn størrelsen på hele strukturen - 4 000 0000
 print(min(findDirBySize(root,(root.Size-40000000),'>=', [])))
