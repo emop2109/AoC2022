@@ -9,8 +9,8 @@ with open('.\input.txt', 'r') as file:
 # initialbetingelsen [0,0].
 #####################################################################################
 
-# Definerer en dict med retningsvektorer basert på avstanden mellom et vilkårlig
-# segment og segmentet foran i tauet
+# Definerer en dict med retningsvektorer basert på avstanden mellom et
+# segment og segmentet fremfor
 vectors = {'2,0' : [1,0], '-2,0' : [-1,0], '0,2' : [0,1], '0,-2': [0,-1], '1,2': [1,1], '2,1': [1,1], '2,-1': [1,-1], '1,-2': [1,-1], '-1,-2': [-1,-1], '-2,-1': [-1,-1], '-1,2': [-1,1], '-2,1': [-1,1],
             '2,2': [1,1], '2,-2': [1,-1], '-2,-2': [-1,-1], '-2,2': [-1,1]}
 
@@ -21,7 +21,7 @@ class RopeSegment:
         self.Position = [start]
         self.Segments = []
     
-    # Dersom legnden på vektoren mellom det aktuelle segmentet og segmentet foran i tauet
+    # Dersom legnden på vektoren mellom det aktuelle segmentet og segmentet fremfor
     # er større enn sqrt(2) legger man til en ny posisjon basert på verdien til "vectors"
     def move(self):
         vector = self.getVectorToParent()
