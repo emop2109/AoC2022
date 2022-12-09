@@ -21,7 +21,7 @@ class RopeSegment:
         self.Position = [start]
         self.Segments = []
     
-    # Dersom legnden på vektoren mellom det aktuelle segmentet og segmntet foran i tauet
+    # Dersom legnden på vektoren mellom det aktuelle segmentet og segmentet foran i tauet
     # er større enn sqrt(2) legger man til en ny posisjon basert på verdien til "vectors"
     def move(self):
         vector = self.getVectorToParent()
@@ -53,31 +53,32 @@ class RopeSegment:
         else:
             self.Segments.append(RopeSegment(parent = self.Segments[-1]))
 
+# Funksjonen beveger tauet etter instruksjonene i hver linje
+def moveRope(input, rope):
+    for line in input:
+        dir, num = line.split(' ')[0], int(line.split(' ')[1])
+        for i in range(0,num):
+            if dir == 'L':
+                rope.moveLeft()
+                rope.moveChildSegments()
+            elif dir == 'R':
+                rope.moveRight()
+                rope.moveChildSegments()
+            elif dir == 'U':
+                rope.moveUp()
+                rope.moveChildSegments()
+            else:
+                rope.moveDown()
+                rope.moveChildSegments()
+    return rope.Segments[-1].Position
 # ---------------------------------------- Del 1 -------------------------------------------
 
 # Definerer "hode"-segment og legger til et segment(halen)
 Rope = RopeSegment()
 Rope.addSegment()
 
-# Iterer over linjene i input og beveger tauet deretter
-for line in input:
-    dir, num = line.split(' ')[0], int(line.split(' ')[1])
-    for i in range(0,num):
-        if dir == 'L':
-           Rope.moveLeft()
-           Rope.moveChildSegments()
-        elif dir == 'R':
-            Rope.moveRight()
-            Rope.moveChildSegments()
-        elif dir == 'U':
-            Rope.moveUp()
-            Rope.moveChildSegments()
-        else:
-            Rope.moveDown()
-            Rope.moveChildSegments()
-
 # Henter ut, fjerner duplikater og printer lengden av listen over posisjoner for det siste segmentet til tauet
-positionsOfTail = Rope.Segments[-1].Position
+positionsOfTail = moveRope(input,Rope)
 positionsOfTail = [i for n, i in enumerate(positionsOfTail) if i not in positionsOfTail[:n]]
 print(len(positionsOfTail))
 
@@ -88,22 +89,6 @@ Rope = RopeSegment()
 for i in range(0,9):
     Rope.addSegment()
 
-for line in input:
-    dir, num = line.split(' ')[0], int(line.split(' ')[1])
-    for i in range(0,num):
-        if dir == 'L':
-           Rope.moveLeft()
-           Rope.moveChildSegments()
-        elif dir == 'R':
-            Rope.moveRight()
-            Rope.moveChildSegments()
-        elif dir == 'U':
-            Rope.moveUp()
-            Rope.moveChildSegments()
-        else:
-            Rope.moveDown()
-            Rope.moveChildSegments()
-
-positionsOfTail = Rope.Segments[-1].Position
+positionsOfTail = moveRope(input,Rope)
 positionsOfTail = [i for n, i in enumerate(positionsOfTail) if i not in positionsOfTail[:n]]
 print(len(positionsOfTail))
