@@ -60,16 +60,13 @@ def moveRope(input, rope):
         for i in range(0,num):
             if dir == 'L':
                 rope.moveLeft()
-                rope.moveChildSegments()
             elif dir == 'R':
                 rope.moveRight()
-                rope.moveChildSegments()
             elif dir == 'U':
                 rope.moveUp()
-                rope.moveChildSegments()
             else:
                 rope.moveDown()
-                rope.moveChildSegments()
+            rope.moveChildSegments()
     return rope.Segments[-1].Position
 # ---------------------------------------- Del 1 -------------------------------------------
 
