@@ -13,7 +13,7 @@ for i in range(0, len(input)):
         max_x = input[i][j][0] if input[i][j][0] > max_x else max_x
         max_y = input[i][j][1] if input[i][j][1] > max_y else max_y
     vectors.append(v)
-# Generer en grid 
+# Genererer en grid 
 grid = [['.' for i in range(0,max_x+1000)] for n in range(0,max_y+2)]
 
 # Funksjonen tenger # basert på linjene i vektor listen
@@ -64,7 +64,7 @@ while sandMove(grid, [500, 0]):
     cnt += 1
 print(cnt)
 
-# Funksjon som skriver en figur av sandkornenes bevegelse
+# Skriver en figur av sandkornenes bevegelse
 msg = ''
 grid[0][500] = '+'
 for i in range(0, len(grid)):
@@ -76,7 +76,6 @@ with open('.\output.txt', 'w') as file:
 
 # ---------------------------------------- Del 2 -------------------------------------------
 # Teller antall sandkorn som må til før et sandkorn finner hvilestedet sitt i (500,0)
-cnt = 0
 while grid[0][500] != 'o':
     sandMove(grid, [500, 0], arg='NoVoid')
     cnt += 1
